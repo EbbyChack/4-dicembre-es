@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     list.appendChild(taskAndButtonContainer);
   });
 
-  const deleteButtons = document.querySelectorAll("delete");
+  const deleteButtons = document.querySelectorAll(".delete");
   for (let index = 0; index < deleteButtons.length; index++) {
     const db = deleteButtons[index];
     db.addEventListener("click", function () {
