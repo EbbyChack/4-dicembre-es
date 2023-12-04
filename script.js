@@ -7,38 +7,30 @@ document.addEventListener("DOMContentLoaded", function () {
     // getting the value in input
     newTask = document.querySelector("#AddTask").value;
     // creating a p element
-    task = document.createElement("li");
+    const task = document.createElement("li");
     // selecting the empty div
-    list = document.querySelector("#list");
+    const list = document.querySelector("#list");
     // adding a class to the list
-    task.classList.add("list-group-item");
+    task.classList.add("list-group-item", "border-0");
     // inserting text
     task.textContent = newTask;
 
-    deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete");
-    deleteButton.classList.add("btn-danger");
-    deleteButton.classList.add("btn");
-    deleteButton.textContent = "Delete";
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete", "btn", "btn-danger");
+    deleteButton.innerHTML = `<i class="fa-solid fa-trash" style="color: #ffffff;"></i>`;
 
-    taskAndButtonContainer = document.createElement("div");
-    // taskAndButtonContainer.classList.add("row");
-    taskAndButtonContainer.classList.add("d-flex");
-    taskAndButtonContainer.classList.add("justify-content-between");
-    taskAndButtonContainer.classList.add("mb-3");
+    const taskAndButtonContainer = document.createElement("div");
+
+    taskAndButtonContainer.classList.add("d-flex", "justify-content-between", "mb-3", "border", "p-2", "rounded-3");
 
     taskAndButtonContainer.appendChild(task);
     taskAndButtonContainer.appendChild(deleteButton);
 
     list.appendChild(taskAndButtonContainer);
-  });
 
-  const deleteButtons = document.querySelectorAll(".delete");
-  for (let index = 0; index < deleteButtons.length; index++) {
-    const db = deleteButtons[index];
-    db.addEventListener("click", function () {
-        console.log("delete")
-      
+    deleteButton.addEventListener("click", function () {
+      // Remove the parent taskAndButtonContainer when the delete button is clicked
+      taskAndButtonContainer.remove();
     });
-  }
+  });
 });
